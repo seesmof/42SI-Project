@@ -1,17 +1,10 @@
-grammar RustLexicon;
-
-WHITESPACE : [ \t\r\n]+ -> skip;
-LINE_COMMENT : '//' ~[\r\n]* -> skip;
-BLOCK_COMMENT : '/*' (BLOCK_COMMENT | .)*? '*/' -> skip;
+grammar Interpreter;
 
 start: expression EOF;
 
-expression
-    :
-    | INT
-    | expression (PLUS | MINUS) expression
-    ;
+expression: INT | expression (PLUS | MINUS) expression;
 
-PLUS  : '+';
-MINUS : '-';
-INT   : [0-9]+;
+PLUS: '+';
+MINUS: '-';
+INT: [0-9]+;
+WS: [ \t\r\n]+ -> skip;
