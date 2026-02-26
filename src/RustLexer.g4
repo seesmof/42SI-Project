@@ -1,20 +1,22 @@
-grammar Interpreter;
-
-start: expression EOF;
-
-expression: DIGIT | expression (PLUS | MINUS) expression;
+lexer grammar Interpreter;
 
 WS: [ \t\r\n]+ -> skip;
 SINGLE_COMMENT: '//' ~[\r\n]* -> skip;
 DOUBLE_COMMETN: '/*' .*? '*/' -> skip;
-NEW_LINE: '\n';
-FUNCTION: 'fn';
+
+// Key words
+FN: 'fn';
 LET: 'let';
-CONST: 'const';
 MUT: 'mut';
-ID: [a-zA-Z_][a-zA-Z0-9_]*;
-LETTER: [a-zA-Z_];
-DIGIT: [0-9];
+STRUCT: 'struct';
+IMPL: 'impl';
+IF: 'if';
+ELSE: 'else';
+LOOP: 'loop';
+WHILE: 'while';
+FOR: 'for';
+IN: 'in';
+RETURN: 'return';
 
 // Data types
 INTEGER: 'i8' | 'i16' | 'i32' | 'i64' | 'i128' | 'isize';
@@ -73,3 +75,13 @@ RIGHT_ARROW: '->';
 POUND: '#';
 DOLLAR: '$';
 QUESTION: '?';
+
+// Vector macro
+VEC_MACRO: 'vec!';
+
+// Literals and identifiers
+BOOL_LIT: 'true' | 'false';
+INT_LIT: [0-9]+;
+FLOAT_LIT: [0-9]+ '.' [0-9]+;
+STRING_LIT: '"' (~["\\] | '\\' .)* '"';
+ID: [a-zA-Z_] [a-zA-Z0-9_]*;
