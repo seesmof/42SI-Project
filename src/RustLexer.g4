@@ -1,13 +1,18 @@
-lexer grammar Interpreter;
+grammar RustLexer;
 
+start: expression EOF;
+
+expression: expression (PLUS | MINUS | STAR | SLASH) expression | INT_LIT ;
+
+// Space and commentaries
 WS: [ \t\r\n]+ -> skip;
 SINGLE_COMMENT: '//' ~[\r\n]* -> skip;
-DOUBLE_COMMETN: '/*' .*? '*/' -> skip;
+DOUBLE_COMMENT: '/*' .*? '*/' -> skip;
 
 // Key words
-FN: 'fn';
 LET: 'let';
 MUT: 'mut';
+FN: 'fn';
 STRUCT: 'struct';
 IMPL: 'impl';
 IF: 'if';
