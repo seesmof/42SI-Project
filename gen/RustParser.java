@@ -1,4 +1,4 @@
-// Generated from D:/University-Universytet/42SI Stvorennja IDE/source/src/RustLexer.g4 by ANTLR 4.13.2
+// Generated from D:/University-Universytet/42SI Stvorennja IDE/source/src/Rust.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue", "this-escape"})
-public class RustLexerParser extends Parser {
+public class RustParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.13.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -98,7 +98,7 @@ public class RustLexerParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "RustLexer.g4"; }
+	public String getGrammarFileName() { return "Rust.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -109,7 +109,7 @@ public class RustLexerParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public RustLexerParser(TokenStream input) {
+	public RustParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
@@ -146,15 +146,15 @@ public class RustLexerParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_start; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).enterStart(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).enterStart(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).exitStart(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).exitStart(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof RustLexerVisitor ) return ((RustLexerVisitor<? extends T>)visitor).visitStart(this);
+			if ( visitor instanceof RustVisitor ) return ((RustVisitor<? extends T>)visitor).visitStart(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -237,23 +237,23 @@ public class RustLexerParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class BlockContext extends ParserRuleContext {
-		public TerminalNode LCURLYBRACE() { return getToken(RustLexerParser.LCURLYBRACE, 0); }
-		public TerminalNode RCURLYBRACE() { return getToken(RustLexerParser.RCURLYBRACE, 0); }
+		public TerminalNode LCURLYBRACE() { return getToken(RustParser.LCURLYBRACE, 0); }
+		public TerminalNode RCURLYBRACE() { return getToken(RustParser.RCURLYBRACE, 0); }
 		public BlockContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_block; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).enterBlock(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).enterBlock(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).exitBlock(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).exitBlock(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof RustLexerVisitor ) return ((RustLexerVisitor<? extends T>)visitor).visitBlock(this);
+			if ( visitor instanceof RustVisitor ) return ((RustVisitor<? extends T>)visitor).visitBlock(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -300,32 +300,32 @@ public class RustLexerParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class MethodContext extends ParserRuleContext {
-		public TerminalNode FN() { return getToken(RustLexerParser.FN, 0); }
-		public List<TerminalNode> ID() { return getTokens(RustLexerParser.ID); }
+		public TerminalNode FN() { return getToken(RustParser.FN, 0); }
+		public List<TerminalNode> ID() { return getTokens(RustParser.ID); }
 		public TerminalNode ID(int i) {
-			return getToken(RustLexerParser.ID, i);
+			return getToken(RustParser.ID, i);
 		}
-		public TerminalNode LPARAN() { return getToken(RustLexerParser.LPARAN, 0); }
-		public TerminalNode RPARAN() { return getToken(RustLexerParser.RPARAN, 0); }
+		public TerminalNode LPARAN() { return getToken(RustParser.LPARAN, 0); }
+		public TerminalNode RPARAN() { return getToken(RustParser.RPARAN, 0); }
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
 		}
-		public TerminalNode RIGHT_ARROW() { return getToken(RustLexerParser.RIGHT_ARROW, 0); }
+		public TerminalNode RIGHT_ARROW() { return getToken(RustParser.RIGHT_ARROW, 0); }
 		public MethodContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_method; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).enterMethod(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).enterMethod(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).exitMethod(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).exitMethod(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof RustLexerVisitor ) return ((RustLexerVisitor<? extends T>)visitor).visitMethod(this);
+			if ( visitor instanceof RustVisitor ) return ((RustVisitor<? extends T>)visitor).visitMethod(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -399,10 +399,10 @@ public class RustLexerParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class FunctionContext extends ParserRuleContext {
-		public TerminalNode FN() { return getToken(RustLexerParser.FN, 0); }
-		public TerminalNode ID() { return getToken(RustLexerParser.ID, 0); }
-		public TerminalNode LPARAN() { return getToken(RustLexerParser.LPARAN, 0); }
-		public TerminalNode RPARAN() { return getToken(RustLexerParser.RPARAN, 0); }
+		public TerminalNode FN() { return getToken(RustParser.FN, 0); }
+		public TerminalNode ID() { return getToken(RustParser.ID, 0); }
+		public TerminalNode LPARAN() { return getToken(RustParser.LPARAN, 0); }
+		public TerminalNode RPARAN() { return getToken(RustParser.RPARAN, 0); }
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
 		}
@@ -412,15 +412,15 @@ public class RustLexerParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_function; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).enterFunction(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).enterFunction(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).exitFunction(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).exitFunction(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof RustLexerVisitor ) return ((RustLexerVisitor<? extends T>)visitor).visitFunction(this);
+			if ( visitor instanceof RustVisitor ) return ((RustVisitor<? extends T>)visitor).visitFunction(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -473,11 +473,11 @@ public class RustLexerParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class StructContext extends ParserRuleContext {
-		public TerminalNode STRUCT() { return getToken(RustLexerParser.STRUCT, 0); }
-		public TerminalNode ID() { return getToken(RustLexerParser.ID, 0); }
-		public TerminalNode LCURLYBRACE() { return getToken(RustLexerParser.LCURLYBRACE, 0); }
-		public TerminalNode RCURLYBRACE() { return getToken(RustLexerParser.RCURLYBRACE, 0); }
-		public TerminalNode IMPL() { return getToken(RustLexerParser.IMPL, 0); }
+		public TerminalNode STRUCT() { return getToken(RustParser.STRUCT, 0); }
+		public TerminalNode ID() { return getToken(RustParser.ID, 0); }
+		public TerminalNode LCURLYBRACE() { return getToken(RustParser.LCURLYBRACE, 0); }
+		public TerminalNode RCURLYBRACE() { return getToken(RustParser.RCURLYBRACE, 0); }
+		public TerminalNode IMPL() { return getToken(RustParser.IMPL, 0); }
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
 		}
@@ -487,15 +487,15 @@ public class RustLexerParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_struct; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).enterStruct(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).enterStruct(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).exitStruct(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).exitStruct(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof RustLexerVisitor ) return ((RustLexerVisitor<? extends T>)visitor).visitStruct(this);
+			if ( visitor instanceof RustVisitor ) return ((RustVisitor<? extends T>)visitor).visitStruct(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -565,7 +565,7 @@ public class RustLexerParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class IfContext extends ParserRuleContext {
-		public TerminalNode IF() { return getToken(RustLexerParser.IF, 0); }
+		public TerminalNode IF() { return getToken(RustParser.IF, 0); }
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
 		}
@@ -575,15 +575,15 @@ public class RustLexerParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_if; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).enterIf(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).enterIf(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).exitIf(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).exitIf(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof RustLexerVisitor ) return ((RustLexerVisitor<? extends T>)visitor).visitIf(this);
+			if ( visitor instanceof RustVisitor ) return ((RustVisitor<? extends T>)visitor).visitIf(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -630,7 +630,7 @@ public class RustLexerParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ElseContext extends ParserRuleContext {
-		public TerminalNode ELSE() { return getToken(RustLexerParser.ELSE, 0); }
+		public TerminalNode ELSE() { return getToken(RustParser.ELSE, 0); }
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
 		}
@@ -640,15 +640,15 @@ public class RustLexerParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_else; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).enterElse(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).enterElse(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).exitElse(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).exitElse(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof RustLexerVisitor ) return ((RustLexerVisitor<? extends T>)visitor).visitElse(this);
+			if ( visitor instanceof RustVisitor ) return ((RustVisitor<? extends T>)visitor).visitElse(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -707,15 +707,15 @@ public class RustLexerParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_if_else; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).enterIf_else(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).enterIf_else(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).exitIf_else(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).exitIf_else(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof RustLexerVisitor ) return ((RustLexerVisitor<? extends T>)visitor).visitIf_else(this);
+			if ( visitor instanceof RustVisitor ) return ((RustVisitor<? extends T>)visitor).visitIf_else(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -745,8 +745,8 @@ public class RustLexerParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Else_ifContext extends ParserRuleContext {
-		public TerminalNode ELSE() { return getToken(RustLexerParser.ELSE, 0); }
-		public TerminalNode IF() { return getToken(RustLexerParser.IF, 0); }
+		public TerminalNode ELSE() { return getToken(RustParser.ELSE, 0); }
+		public TerminalNode IF() { return getToken(RustParser.IF, 0); }
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
 		}
@@ -756,15 +756,15 @@ public class RustLexerParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_else_if; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).enterElse_if(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).enterElse_if(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).exitElse_if(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).exitElse_if(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof RustLexerVisitor ) return ((RustLexerVisitor<? extends T>)visitor).visitElse_if(this);
+			if ( visitor instanceof RustVisitor ) return ((RustVisitor<? extends T>)visitor).visitElse_if(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -813,14 +813,14 @@ public class RustLexerParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class VariableContext extends ParserRuleContext {
-		public TerminalNode LET() { return getToken(RustLexerParser.LET, 0); }
-		public TerminalNode ID() { return getToken(RustLexerParser.ID, 0); }
-		public TerminalNode EQ() { return getToken(RustLexerParser.EQ, 0); }
+		public TerminalNode LET() { return getToken(RustParser.LET, 0); }
+		public TerminalNode ID() { return getToken(RustParser.ID, 0); }
+		public TerminalNode EQ() { return getToken(RustParser.EQ, 0); }
 		public BindingContext binding() {
 			return getRuleContext(BindingContext.class,0);
 		}
-		public TerminalNode MUT() { return getToken(RustLexerParser.MUT, 0); }
-		public TerminalNode COLON() { return getToken(RustLexerParser.COLON, 0); }
+		public TerminalNode MUT() { return getToken(RustParser.MUT, 0); }
+		public TerminalNode COLON() { return getToken(RustParser.COLON, 0); }
 		public Data_typesContext data_types() {
 			return getRuleContext(Data_typesContext.class,0);
 		}
@@ -830,15 +830,15 @@ public class RustLexerParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_variable; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).enterVariable(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).enterVariable(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).exitVariable(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).exitVariable(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof RustLexerVisitor ) return ((RustLexerVisitor<? extends T>)visitor).visitVariable(this);
+			if ( visitor instanceof RustVisitor ) return ((RustVisitor<? extends T>)visitor).visitVariable(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -903,25 +903,25 @@ public class RustLexerParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class BindingContext extends ParserRuleContext {
-		public TerminalNode FLOAT_LIT() { return getToken(RustLexerParser.FLOAT_LIT, 0); }
-		public TerminalNode INT_LIT() { return getToken(RustLexerParser.INT_LIT, 0); }
-		public TerminalNode STRING_LIT() { return getToken(RustLexerParser.STRING_LIT, 0); }
-		public TerminalNode BOOL_LIT() { return getToken(RustLexerParser.BOOL_LIT, 0); }
+		public TerminalNode FLOAT_LIT() { return getToken(RustParser.FLOAT_LIT, 0); }
+		public TerminalNode INT_LIT() { return getToken(RustParser.INT_LIT, 0); }
+		public TerminalNode STRING_LIT() { return getToken(RustParser.STRING_LIT, 0); }
+		public TerminalNode BOOL_LIT() { return getToken(RustParser.BOOL_LIT, 0); }
 		public BindingContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_binding; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).enterBinding(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).enterBinding(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).exitBinding(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).exitBinding(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof RustLexerVisitor ) return ((RustLexerVisitor<? extends T>)visitor).visitBinding(this);
+			if ( visitor instanceof RustVisitor ) return ((RustVisitor<? extends T>)visitor).visitBinding(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -958,24 +958,24 @@ public class RustLexerParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class VectorContext extends ParserRuleContext {
-		public TerminalNode VEC_MACRO() { return getToken(RustLexerParser.VEC_MACRO, 0); }
-		public TerminalNode LSQUAREBRACKET() { return getToken(RustLexerParser.LSQUAREBRACKET, 0); }
-		public TerminalNode RSQUAREBRACKET() { return getToken(RustLexerParser.RSQUAREBRACKET, 0); }
+		public TerminalNode VEC_MACRO() { return getToken(RustParser.VEC_MACRO, 0); }
+		public TerminalNode LSQUAREBRACKET() { return getToken(RustParser.LSQUAREBRACKET, 0); }
+		public TerminalNode RSQUAREBRACKET() { return getToken(RustParser.RSQUAREBRACKET, 0); }
 		public VectorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_vector; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).enterVector(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).enterVector(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).exitVector(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).exitVector(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof RustLexerVisitor ) return ((RustLexerVisitor<? extends T>)visitor).visitVector(this);
+			if ( visitor instanceof RustVisitor ) return ((RustVisitor<? extends T>)visitor).visitVector(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1024,27 +1024,27 @@ public class RustLexerParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class LoopContext extends ParserRuleContext {
-		public TerminalNode LOOP() { return getToken(RustLexerParser.LOOP, 0); }
+		public TerminalNode LOOP() { return getToken(RustParser.LOOP, 0); }
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
 		}
-		public TerminalNode WHILE() { return getToken(RustLexerParser.WHILE, 0); }
-		public TerminalNode FOR() { return getToken(RustLexerParser.FOR, 0); }
+		public TerminalNode WHILE() { return getToken(RustParser.WHILE, 0); }
+		public TerminalNode FOR() { return getToken(RustParser.FOR, 0); }
 		public LoopContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_loop; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).enterLoop(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).enterLoop(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).exitLoop(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).exitLoop(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof RustLexerVisitor ) return ((RustLexerVisitor<? extends T>)visitor).visitLoop(this);
+			if ( visitor instanceof RustVisitor ) return ((RustVisitor<? extends T>)visitor).visitLoop(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1133,27 +1133,27 @@ public class RustLexerParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Data_typesContext extends ParserRuleContext {
-		public TerminalNode INTEGER() { return getToken(RustLexerParser.INTEGER, 0); }
-		public TerminalNode UNSIGNED_INTEGER() { return getToken(RustLexerParser.UNSIGNED_INTEGER, 0); }
-		public TerminalNode FLOAT() { return getToken(RustLexerParser.FLOAT, 0); }
-		public TerminalNode BOOL() { return getToken(RustLexerParser.BOOL, 0); }
-		public TerminalNode CHAR() { return getToken(RustLexerParser.CHAR, 0); }
-		public TerminalNode STRING() { return getToken(RustLexerParser.STRING, 0); }
+		public TerminalNode INTEGER() { return getToken(RustParser.INTEGER, 0); }
+		public TerminalNode UNSIGNED_INTEGER() { return getToken(RustParser.UNSIGNED_INTEGER, 0); }
+		public TerminalNode FLOAT() { return getToken(RustParser.FLOAT, 0); }
+		public TerminalNode BOOL() { return getToken(RustParser.BOOL, 0); }
+		public TerminalNode CHAR() { return getToken(RustParser.CHAR, 0); }
+		public TerminalNode STRING() { return getToken(RustParser.STRING, 0); }
 		public Data_typesContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_data_types; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).enterData_types(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).enterData_types(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof RustLexerListener ) ((RustLexerListener)listener).exitData_types(this);
+			if ( listener instanceof RustListener ) ((RustListener)listener).exitData_types(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof RustLexerVisitor ) return ((RustLexerVisitor<? extends T>)visitor).visitData_types(this);
+			if ( visitor instanceof RustVisitor ) return ((RustVisitor<? extends T>)visitor).visitData_types(this);
 			else return visitor.visitChildren(this);
 		}
 	}

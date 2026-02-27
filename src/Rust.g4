@@ -1,4 +1,4 @@
-grammar RustLexer;
+grammar Rust;
 
 // === PARSER ===
 start: block | method | function | struct | if | else | if_else | else_if;
