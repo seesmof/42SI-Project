@@ -1,8 +1,10 @@
 grammar RustLexer;
 
-start: expression EOF;
-
+start: expression EOF | function EOF;
 expression: expression (PLUS | MINUS | STAR | SLASH) expression | INT_LIT ;
+function: FN ID LPARAN .*? RPARAN ;
+variable
+    : LET MUT? ID COLON (INTEGER | UNSIGNED_INTEGER | FLOAT | BOOL | CHAR | STRING) EQ FLOAT_LIT | INT_LIT | STRING_LIT | BOOL_LIT ;
 
 // Space and commentaries
 WS: [ \t\r\n]+ -> skip;
@@ -55,12 +57,6 @@ PLUS_EQ: '+=';
 MINUS_EQ: '-=';
 STAR_EQ: '*=';
 SLASH_EQ: '/=';
-PERCENT_EQ: '%=';
-CARET_EQ: '^=';
-AND_EQ: '&=';
-OR_EQ: '|=';
-SHIFT_LEFT_EQ: '<<=';
-SHIFT_RIGHT_EQ: '>>=';
 EQ: '=';
 EQ_EQ: '==';
 NE: '!=';
