@@ -1,16 +1,21 @@
 grammar RustLexer;
 
 // === PARSER ===
-start: block EOF | method EOF | function EOF | struct EOF;
+start: block | method | function | struct | if | else | if_else | else_if;
 
 // Block
 block: LCURLYBRACE .*? RCURLYBRACE;
 method: FN ID LPARAN .*? RPARAN RIGHT_ARROW? ID? block;
 function: FN ID LPARAN .*? RPARAN block;
 struct: STRUCT ID LCURLYBRACE .*? RCURLYBRACE | IMPL ID block;
+if: IF .*? block;
+else: ELSE .*? block;
+if_else: if else;
+else_if: ELSE IF .*? block;
 
 // Inline
-variable: LET MUT? ID COLON? (data_types)? EQ FLOAT_LIT | INT_LIT | STRING_LIT | BOOL_LIT ;
+variable: LET MUT? ID COLON? (data_types)? EQ binding;
+binding: FLOAT_LIT | INT_LIT | STRING_LIT | BOOL_LIT;
 vector: VEC_MACRO LSQUAREBRACKET .*? RSQUAREBRACKET;
 loop: LOOP block | WHILE .*? block | FOR .*? block;
 
