@@ -1,10 +1,12 @@
 grammar RustLexer;
 
-start: expression EOF | function EOF;
-expression: expression (PLUS | MINUS | STAR | SLASH) expression | INT_LIT ;
-function: FN ID LPARAN .*? RPARAN ;
-variable
-    : LET MUT? ID COLON (INTEGER | UNSIGNED_INTEGER | FLOAT | BOOL | CHAR | STRING) EQ FLOAT_LIT | INT_LIT | STRING_LIT | BOOL_LIT ;
+start: function EOF | block EOF | vector EOF | variable EOF;
+block: LCURLYBRACE .*? RCURLYBRACE;
+function: FN ID LPARAN .*? RPARAN block;
+variable: LET MUT? ID COLON? (data_types)? EQ FLOAT_LIT | INT_LIT | STRING_LIT | BOOL_LIT ;
+data_types: INTEGER | UNSIGNED_INTEGER | FLOAT | BOOL | CHAR | STRING;
+vector: VEC_MACRO LSQUAREBRACKET .*? RSQUAREBRACKET;
+struct: STRUCT ID LCURLYBRACE .*? RCURLYBRACE;
 
 // Space and commentaries
 WS: [ \t\r\n]+ -> skip;
