@@ -1,13 +1,13 @@
 grammar Rust;
 
-// === PARSER ===
+// --- PARSER ---
 start: block | method | function | struct | if | else | if_else | else_if;
 
 // Block
-block: LCURLYBRACE .*? RCURLYBRACE;
-method: FN ID LPARAN .*? RPARAN RIGHT_ARROW? ID? block;
-function: FN ID LPARAN .*? RPARAN block;
-struct: STRUCT ID LCURLYBRACE .*? RCURLYBRACE | IMPL ID block;
+block: LEFT_CURLY_BRACE .*? RIGHT_CURLY_BRACE;
+method: FN ID LEFT_PARANTHESIS .*? RIGHT_PARANTHESIS RIGHT_ARROW? ID? block;
+function: FN ID LEFT_PARANTHESIS .*? RIGHT_PARANTHESIS block;
+struct: STRUCT ID LEFT_CURLY_BRACE .*? RIGHT_CURLY_BRACE | IMPL ID block;
 if: IF .*? block;
 else: ELSE .*? block;
 if_else: if else;
@@ -16,13 +16,13 @@ else_if: ELSE IF .*? block;
 // Inline
 variable: LET MUT? ID COLON? (data_types)? EQ binding;
 binding: FLOAT_LIT | INT_LIT | STRING_LIT | BOOL_LIT;
-vector: VEC_MACRO LSQUAREBRACKET .*? RSQUAREBRACKET;
+vector: VEC_MACRO LEFT_SQUARE_BRACE .*? RIGHT_SQUARE_BRACE;
 loop: LOOP block | WHILE .*? block | FOR .*? block;
 
 // Helper
 data_types: INTEGER | UNSIGNED_INTEGER | FLOAT | BOOL | CHAR | STRING;
 
-// === LEXER ===
+// --- LEXER ---
 // Space and commentaries
 WS: [ \t\r\n]+ -> skip;
 SINGLE_COMMENT: '//' ~[\r\n]* -> skip;
@@ -69,7 +69,7 @@ WHILE: 'while';
 // Literals and identifiers
 BOOL_LIT: 'true' | 'false';
 INT_LIT: [0-9]+;
-FLOAT_LIT: [0-9]+ '.' [0-9]+;
+FLOAT_LIT: [0-9]+ '.' [0-9]+ | '.' [0-9]+;
 STRING_LIT: '"' (~["\\] | '\\' .)* '"';
 ID: [a-zA-Z_] [a-zA-Z0-9_]*;
 
@@ -82,48 +82,58 @@ CHAR: 'char';
 STRING: 'str' | 'String';
 
 // Brackets
-LCURLYBRACE: '{';
-RCURLYBRACE: '}';
-LSQUAREBRACKET: '[';
-RSQUAREBRACKET: ']';
-LPARAN: '(';
-RPARAN: ')';
+LEFT_CURLY_BRACE: '{';
+RIGHT_CURLY_BRACE: '}';
+LEFT_SQUARE_BRACE: '[';
+RIGHT_SQUARE_BRACE: ']';
+LEFT_PARANTHESIS: '(';
+RIGHT_PARANTHESIS: ')';
 
 // Symbols
-PLUS: '+';
-MINUS: '-';
-STAR: '*';
-SLASH: '/';
+EXCLAMATION: '!';
+EXCLAMATORY_EQUAL: '!=';
 PERCENT: '%';
-CARET: '^';
-NOT: '!';
-AND: '&';
-OR: '|';
-AND_AND: '&&';
-OR_OR: '||';
-PLUS_EQ: '+=';
-MINUS_EQ: '-=';
-STAR_EQ: '*=';
-SLASH_EQ: '/=';
-EQ: '=';
-EQ_EQ: '==';
-NE: '!=';
-GT: '>';
-LT: '<';
-GE: '>=';
-LE: '<=';
-AT: '@';
-UNDERSCORE: '_';
-DOT: '.';
-DOTDOT: '..';
+AMPERSAND: '&';
+AMPERSAND_EQUAL: '&=';
+AMPERSAND_AMPERSAND: '&&';
+STAR: '*';
+STAR_EQUAL: '*=';
+PLUS: '+';
+PLUS_EQUAL: '+=';
 COMMA: ',';
-SEMI: ';';
-COLON: ':';
-PATH_SEPARATOR: '::';
+DASH: '-';
+DASH_EQUAL: '-=';
 RIGHT_ARROW: '->';
+DOT: '.';
+DOT_DOT: '..';
+DOT_DOT_EQUAL: '..=';
+DOT_DOT_DOT: '...';
+SLASH: '/';
+SLASH_EQUAL: '/=';
+COLON: ':';
+SEMICOLON: ';';
+LEFT_LEFT: '<<';
+LEFT_LEFT_EQUAL: '<<=';
+LEFT: '<';
+LEFT_EQUAL: '<=';
+EQUAL: '=';
+EQUAL_EQUAL: '==';
+RIGHT_ARROW_BIG: '=>';
+RIGHT: '>';
+RIGHT_EQUAL: '>=';
+RIGHT_RIGHT: '>>';
+RIGHT_RIGHT_EQUAL: '>>=';
+AT: '@';
+CARET: '^';
+CARET_EQUAL: '^=';
+PIPE: '|';
+PIPE_EQUAL: '|=';
+PIPE_PIPE: '||';
+QUESTION: '?';
+UNDERSCORE: '_';
+PATH_SEPARATOR: '::';
 POUND: '#';
 DOLLAR: '$';
-QUESTION: '?';
 
 // Vector macro
 VEC_MACRO: 'vec!';
