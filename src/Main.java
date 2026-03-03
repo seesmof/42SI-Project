@@ -1,26 +1,56 @@
 import javax.swing.*;
-import org.antlr.runtime.tree.ParseTree;
+import java.awt.*;
 import org.antlr.v4.runtime.*;
-import gen.RustLexer
+import org.antlr.v4.runtime.tree.*;
+import gen.RustLexer;
+import gen.RustParser;
 
-void main() {
-    JFrame frame = new JFrame();
-    JTextArea textArea = new JTextArea();
-    textArea.setBounds(10, 10, 465, 440);
-    frame.add(textArea);
+public class Main extends JFrame {
+    private JTextArea inputArea;
+    private JTextArea outputArea;
 
-    frame.setSize(500, 500);
-    frame.setLayout(null);
-    frame.setResizable(false);
-    frame.setVisible(true);
+    public Main() {
+        setTitle("ANTLR Parser IDE");
+        setSize(800, 600);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
 
-    String input=textArea.getText();
-    CharStream stream = CharStreams.fromString(input);
-    RustLexer lexer = new RustLexer(stream);
-    CommonTokenStream tokens=new CommonTokenStream(lexer);
-    RustLexerParser parser = new RustLexerParser(tokens);
+        inputArea = new JTextArea();
+        inputArea.setFont(new Font("Consolas", Font.PLAIN, 14));
 
-    ParseTree tree= parser.compilationUnit();
-    CustomVisitor visitor = new CustomViristor();
-    visitor.visit(tree);
+        outputArea = new JTextArea();
+        outputArea.setEditable(false);
+        outputArea.setBackground(new Color(240, 240, 240));
+
+        JButton runButton = new JButton("Run Parser");
+        runButton.addActionListener(e -> runParser());
+
+        add(new JScrollPane(inputArea), BorderLayout.CENTER);
+        add(new JScrollPane(outputArea), BorderLayout.SOUTH);
+        add(runButton, BorderLayout.NORTH);
+
+        outputArea.setPreferredSize(new Dimension(800, 150));
+    }
+
+    private void runParser() {
+        try {
+            String code = inputArea.getText();
+            CharStream input = CharStreams.fromString(code);
+            RustLexer lexer = new RustLexer(input);
+            CommonTokenStream tokens = new CommonTokenStream(lexer);
+            RustParser parser = new RustParser(tokens);
+
+            ParseTree tree = parser.start();
+
+            outputArea.setText("Success!\nAST Tre: " + tree.toStringTree(parser));
+            outputArea.setForeground(Color.BLACK);
+        } catch ( Exception exception) {
+            outputArea.setText("Error!\n" + exception.getMessage());
+            outputArea.setForeground(Color.RED);
+        }
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new Main().setVisible(true));
+    }
 }
