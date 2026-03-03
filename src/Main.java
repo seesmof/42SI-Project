@@ -42,7 +42,7 @@ public class Main extends JFrame {
 
             ParseTree tree = parser.start();
 
-            outputArea.setText("Success!\nAST Tre: " + tree.toStringTree(parser));
+            outputArea.setText("Success!\nAST Tree: " + tree.toStringTree(parser));
             outputArea.setForeground(Color.BLACK);
         } catch ( Exception exception) {
             outputArea.setText("Error!\n" + exception.getMessage());
