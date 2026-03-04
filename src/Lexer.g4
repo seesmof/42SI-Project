@@ -1,8 +1,11 @@
 grammar Lexer;
 
-start: assign EOF;
-assign: ID '=' NUMBER;
+query : select from where EOF ;
 
-WS: [ \t\r\n]+ -> skip;
-ID: [a-zA-Z0-9_]+;
-NUMBER: [0-9]+;
+select: 'SELECT' LIST;
+from: 'FROM' ID;
+where: 'WHERE' EXPRESSION;
+
+LIST: [a-zA-Z,]+;
+ID: [0-9a-zA-Z_]*;
+EXPRESSION: .*?;

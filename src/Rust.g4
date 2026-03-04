@@ -67,7 +67,7 @@ WHERE: 'where';
 WHILE: 'while';
 
 // Literals and identifiers
-BOOL_LIT: 'true' | 'false';
+BOOL_LIT: TRUE | FALSE;
 INT_LIT: [0-9]+;
 FLOAT_LIT: [0-9]+ '.' [0-9]+ | '.' [0-9]+;
 STRING_LIT: '"' (~["\\] | '\\' .)* '"';
