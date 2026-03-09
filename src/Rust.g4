@@ -1,28 +1,46 @@
 grammar Rust;
 
 // --- PARSER ---
-start: block | method | function | struct | if | else | if_else | else_if;
+start:
+	block
+	| method
+	| function
+	| struct
+	| if
+	| else
+	| if_else
+	| else_if;
 
 // Block
 block: LEFT_CURLY_BRACE .*? RIGHT_CURLY_BRACE;
-method: FN ID LEFT_PARANTHESIS .*? RIGHT_PARANTHESIS RIGHT_ARROW? ID? block;
+method:
+	FN ID LEFT_PARANTHESIS .*? RIGHT_PARANTHESIS RIGHT_ARROW? ID? block;
 function: FN ID LEFT_PARANTHESIS .*? RIGHT_PARANTHESIS block;
-struct: STRUCT ID LEFT_CURLY_BRACE .*? RIGHT_CURLY_BRACE | IMPL ID block;
+struct:
+	STRUCT ID LEFT_CURLY_BRACE .*? RIGHT_CURLY_BRACE
+	| IMPL ID block;
 if: IF .*? block;
 else: ELSE .*? block;
 if_else: if else;
 else_if: ELSE IF .*? block;
 
 // Inline
-variable: LET MUT? ID COLON? (data_types)? EQ binding;
+variable: LET MUT? ID COLON? (data_types)? EQUAL binding;
 binding: FLOAT_LIT | INT_LIT | STRING_LIT | BOOL_LIT;
 vector: VEC_MACRO LEFT_SQUARE_BRACE .*? RIGHT_SQUARE_BRACE;
 loop: LOOP block | WHILE .*? block | FOR .*? block;
 
 // Helper
-data_types: INTEGER | UNSIGNED_INTEGER | FLOAT | BOOL | CHAR | STRING;
+data_types:
+	INTEGER
+	| UNSIGNED_INTEGER
+	| FLOAT
+	| BOOL
+	| CHAR
+	| STRING;
 
-// --- LEXER ---
+// --- LEXER --- 
+
 // Space and commentaries
 WS: [ \t\r\n]+ -> skip;
 SINGLE_COMMENT: '//' ~[\r\n]* -> skip;
@@ -75,7 +93,13 @@ ID: [a-zA-Z_] [a-zA-Z0-9_]*;
 
 // Data types
 INTEGER: 'i8' | 'i16' | 'i32' | 'i64' | 'i128' | 'isize';
-UNSIGNED_INTEGER: 'u8' | 'u16' | 'u32' | 'u64' | 'u128' | 'usize';
+UNSIGNED_INTEGER:
+	'u8'
+	| 'u16'
+	| 'u32'
+	| 'u64'
+	| 'u128'
+	| 'usize';
 FLOAT: 'f32' | 'f64';
 BOOL: 'bool';
 CHAR: 'char';
@@ -137,3 +161,5 @@ DOLLAR: '$';
 
 // Vector macro
 VEC_MACRO: 'vec!';
+
+ERR_CHAR: . { System.err.println("Error: Unexpected character '" + getText() + "' at line " + getLine()); }
