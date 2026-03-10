@@ -12,8 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame(appName);
-
-        JTextArea inputField = new JTextArea();
+        JTextArea inputField = new JTextArea("fn main() {\n  let x = 10;\n}");
         JTextArea outputField = new JTextArea();
 
         frame.add(inputField, BorderLayout.NORTH);
@@ -27,18 +26,34 @@ public class Main {
         inputField.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                outputField.setText(inputField.getText());
+                RustLexer lexer= new RustLexer(new ANTLRInputStream(inputField.getText()));
+                CommonTokenStream tokens = new CommonTokenStream(lexer);
+                RustParser parser = new RustParser(tokens);
+                parser.removeErrorListeners();
+                parser.addErrorListener(new CustomErrorListener());
+                outputField.setText(parser.start().getText());
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                outputField.setText(inputField.getText());
+                RustLexer lexer= new RustLexer(new ANTLRInputStream(inputField.getText()));
+                CommonTokenStream tokens = new CommonTokenStream(lexer);
+                RustParser parser = new RustParser(tokens);
+                parser.removeErrorListeners();
+                parser.addErrorListener(new CustomErrorListener());
+                outputField.setText(parser.start().getText());
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                outputField.setText(inputField.getText());
+                RustLexer lexer= new RustLexer(new ANTLRInputStream(inputField.getText()));
+                CommonTokenStream tokens = new CommonTokenStream(lexer);
+                RustParser parser = new RustParser(tokens);
+                parser.removeErrorListeners();
+                parser.addErrorListener(new CustomErrorListener());
+                outputField.setText(parser.start().getText());
             }
         });
+
     }
 }
