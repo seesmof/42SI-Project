@@ -27,10 +27,10 @@ public class Main {
         RustParser parser = new RustParser(tokens);
 
         button.addActionListener(e -> {
-            outputField.setText(inputField.getText());
+            outputField.setText(parser.start().toString());
         });
 
-        frame.setSize(400,400);
+        frame.setSize(400,130);
         frame.setVisible(true);
     }
 }
