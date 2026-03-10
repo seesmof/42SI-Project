@@ -161,5 +161,3 @@ DOLLAR: '$';
 
 // Vector macro
 VEC_MACRO: 'vec!';
-
-ERR_CHAR: . { System.err.println("Error: Unexpected character '" + getText() + "' at line " + getLine()); }
