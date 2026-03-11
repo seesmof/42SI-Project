@@ -2,6 +2,8 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
+import java.io.PrintStream;
+
 import gen.RustLexer;
 import gen.RustParser;
 import org.antlr.v4.runtime.*;
@@ -14,10 +16,12 @@ public class Main {
         JFrame frame = new JFrame(appName);
         JTextArea inputField = new JTextArea("fn main() {\n  let x = 10;\n}");
         JTextArea outputField = new JTextArea();
+        JScrollPane scrollPane = new JScrollPane(outputField);
         JButton button = new JButton("Run");
 
         frame.add(inputField, BorderLayout.NORTH);
         frame.add(outputField, BorderLayout.SOUTH);
+        frame.add(scrollPane, BorderLayout.CENTER);
         outputField.setEditable(false);
         frame.add(button, BorderLayout.CENTER);
 
@@ -25,10 +29,16 @@ public class Main {
         RustLexer lexer = new RustLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         RustParser parser = new RustParser(tokens);
+        parser.removeErrorListeners();
+        parser.addErrorListener(new CustomErrorListener());
 
         button.addActionListener(e -> {
             outputField.setText(parser.start().toString());
         });
+
+        PrintStream printStream = new PrintStream(new CustomOutputStream(outputField));
+        System.setOut(printStream);
+        System.setErr(printStream);
 
         frame.setSize(400,130);
         frame.setVisible(true);
