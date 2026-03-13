@@ -39,7 +39,7 @@ data_types:
 	| CHAR
 	| STRING;
 
-// --- LEXER --- 
+// --- LEXER ---
 
 // Space and commentaries
 WS: [ \t\r\n]+ -> skip;

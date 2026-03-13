@@ -1,4 +1,4 @@
-// Generated from d:/University-Universytet/42SI Stvorennja IDE/source/src/Grammar.g4 by ANTLR 4.13.1
+// Generated from d:/University-Universytet/42SI Stvorennja IDE/source/src/Rust.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -141,7 +141,7 @@ public class RustLexer extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Grammar.g4"; }
+	public String getGrammarFileName() { return "Rust.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

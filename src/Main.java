@@ -16,12 +16,10 @@ public class Main {
         JFrame frame = new JFrame(appName);
         JTextArea inputField = new JTextArea("fn main() {\n  let x = 10;\n}");
         JTextArea outputField = new JTextArea();
-        JScrollPane scrollPane = new JScrollPane(outputField);
         JButton button = new JButton("Run");
 
         frame.add(inputField, BorderLayout.NORTH);
         frame.add(outputField, BorderLayout.SOUTH);
-        frame.add(scrollPane, BorderLayout.CENTER);
         outputField.setEditable(false);
         frame.add(button, BorderLayout.CENTER);
 
