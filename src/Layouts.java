@@ -6,15 +6,15 @@ public class Layouts {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JButton firstButton = new JButton("First");
-        JButton secondButton = new JButton("Second");
-        JButton thirdButton = new JButton("Third");
+        JTextArea input = new JTextArea();
+        JButton button = new JButton("Analyze");
+        JTextArea output = new JTextArea();
 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(1,3));
-        panel.add(firstButton);
-        panel.add(secondButton);
-        panel.add(thirdButton);
+        panel.setLayout(new GridLayout(3,1));
+        panel.add(input);
+        panel.add(button);
+        panel.add(output);
 
         frame.add(panel);
         frame.setSize(400,400);

@@ -9,15 +9,17 @@ class FileUploader {
     public static void main(String[] args) {
         String fileName = "D:\\University-Universytet\\42SI Stvorennja IDE\\source\\src\\Rust.g4";
         File file = new File(fileName);
+        String s = "";
 
         try (Scanner reader = new Scanner(file))     {
             while (reader.hasNextLine()) {
                 String line = reader.nextLine();
-                System.out.println(line);
+                s = s + line + "\n";
             }
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
-            e.printStackTrace();
         }
+
+        System.out.println(s);
     }
 }
