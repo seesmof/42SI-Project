@@ -32,6 +32,11 @@ public class Main {
 
         analyze.addActionListener(e -> {
             outputField.setText("");
+            RustLexer lexer = new RustLexer(CharStreams.fromString(inputField.getText()));
+            CommonTokenStream tokens = new CommonTokenStream(lexer);
+            RustParser parser = new RustParser(tokens);
+            ParseTree tree = parser.start();
+            outputField.setText(tree.toStringTree(parser));
         });
 
         frame.setSize(400,400);
