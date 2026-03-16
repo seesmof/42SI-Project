@@ -33,8 +33,12 @@ public class Main {
         analyze.addActionListener(e -> {
             outputField.setText("");
             RustLexer lexer = new RustLexer(CharStreams.fromString(inputField.getText()));
+            lexer.removeErrorListeners();
+            lexer.addErrorListener(CustomErrorListener.INSTANCE);
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             RustParser parser = new RustParser(tokens);
+            parser.removeErrorListeners();
+            parser.addErrorListener(CustomErrorListener.INSTANCE);
             ParseTree tree = parser.start();
             outputField.setText(tree.toStringTree(parser));
         });

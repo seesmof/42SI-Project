@@ -12,8 +12,7 @@ import javax.swing.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public
-class Tree {
+public class Tree {
     public static void main(String args[]) {
         String input = "fn main() {\n  let y = 10;\n}";
         RustLexer lexer = new RustLexer(CharStreams.fromString(input));
