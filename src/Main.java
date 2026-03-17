@@ -15,9 +15,10 @@ public class Main {
     public static String appName = "42SI.1 Text Editor";
 
     public static void main(String[] args) {
-        String initialText = "fn main() {\n  let x = 10;\n  println!('Jesus is LORD')\n  let y = 30;\n  let abc = 30;\n  for (int i = 0; i <= 10; i++} {\n  println!('Jesus is KING', i)\n}";
+        String initialText = "fn main() {\n  let x = 10;\n  println!('Jesus is LORD')\n  let y = 30;\n\n  for (int i = 0; i <= 10; i++} {\n    println!('Jesus is KING', i)\n  }\n}";
         JFrame frame = new JFrame(appName);
         JTextArea inputField = new JTextArea(initialText);
+        inputField.setFont(new Font("Consolas", Font.PLAIN, 14));
         JTextArea outputField = new JTextArea();
         JButton analyze = new JButton("Analyze");
         JButton upload = new JButton("Upload");
@@ -78,7 +79,7 @@ public class Main {
             }
         });
 
-        frame.setSize(400,400);
+        frame.setSize(400,300);
         frame.setVisible(true);
     }
 }
