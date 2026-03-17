@@ -135,29 +135,29 @@ public class RustParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class StartContext extends ParserRuleContext {
-		public BlockContext block() {
-			return getRuleContext(BlockContext.class,0);
-		}
-		public MethodContext method() {
-			return getRuleContext(MethodContext.class,0);
-		}
-		public FunctionContext function() {
-			return getRuleContext(FunctionContext.class,0);
-		}
-		public StructContext struct() {
-			return getRuleContext(StructContext.class,0);
-		}
 		public IfContext if_() {
 			return getRuleContext(IfContext.class,0);
 		}
 		public ElseContext else_() {
 			return getRuleContext(ElseContext.class,0);
 		}
+		public BlockContext block() {
+			return getRuleContext(BlockContext.class,0);
+		}
+		public StructContext struct() {
+			return getRuleContext(StructContext.class,0);
+		}
+		public MethodContext method() {
+			return getRuleContext(MethodContext.class,0);
+		}
 		public If_elseContext if_else() {
 			return getRuleContext(If_elseContext.class,0);
 		}
 		public Else_ifContext else_if() {
 			return getRuleContext(Else_ifContext.class,0);
+		}
+		public FunctionContext function() {
+			return getRuleContext(FunctionContext.class,0);
 		}
 		public StartContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -176,21 +176,21 @@ public class RustParser extends Parser {
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(28);
-				block();
+				if_();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(29);
-				method();
+				else_();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(30);
-				function();
+				block();
 				}
 				break;
 			case 4:
@@ -204,28 +204,28 @@ public class RustParser extends Parser {
 				enterOuterAlt(_localctx, 5);
 				{
 				setState(32);
-				if_();
+				method();
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
 				setState(33);
-				else_();
+				if_else();
 				}
 				break;
 			case 7:
 				enterOuterAlt(_localctx, 7);
 				{
 				setState(34);
-				if_else();
+				else_if();
 				}
 				break;
 			case 8:
 				enterOuterAlt(_localctx, 8);
 				{
 				setState(35);
-				else_if();
+				function();
 				}
 				break;
 			}
@@ -1058,12 +1058,12 @@ public class RustParser extends Parser {
 		"\u0000\fe\u0001\u0000\u0000\u0000\u000en\u0001\u0000\u0000\u0000\u0010"+
 		"q\u0001\u0000\u0000\u0000\u0012{\u0001\u0000\u0000\u0000\u0014\u0089\u0001"+
 		"\u0000\u0000\u0000\u0016\u008b\u0001\u0000\u0000\u0000\u0018\u00a7\u0001"+
-		"\u0000\u0000\u0000\u001a\u00a9\u0001\u0000\u0000\u0000\u001c%\u0003\u0002"+
-		"\u0001\u0000\u001d%\u0003\u0004\u0002\u0000\u001e%\u0003\u0006\u0003\u0000"+
-		"\u001f%\u0003\b\u0004\u0000 %\u0003\n\u0005\u0000!%\u0003\f\u0006\u0000"+
-		"\"%\u0003\u000e\u0007\u0000#%\u0003\u0010\b\u0000$\u001c\u0001\u0000\u0000"+
-		"\u0000$\u001d\u0001\u0000\u0000\u0000$\u001e\u0001\u0000\u0000\u0000$"+
-		"\u001f\u0001\u0000\u0000\u0000$ \u0001\u0000\u0000\u0000$!\u0001\u0000"+
+		"\u0000\u0000\u0000\u001a\u00a9\u0001\u0000\u0000\u0000\u001c%\u0003\n"+
+		"\u0005\u0000\u001d%\u0003\f\u0006\u0000\u001e%\u0003\u0002\u0001\u0000"+
+		"\u001f%\u0003\b\u0004\u0000 %\u0003\u0004\u0002\u0000!%\u0003\u000e\u0007"+
+		"\u0000\"%\u0003\u0010\b\u0000#%\u0003\u0006\u0003\u0000$\u001c\u0001\u0000"+
+		"\u0000\u0000$\u001d\u0001\u0000\u0000\u0000$\u001e\u0001\u0000\u0000\u0000"+
+		"$\u001f\u0001\u0000\u0000\u0000$ \u0001\u0000\u0000\u0000$!\u0001\u0000"+
 		"\u0000\u0000$\"\u0001\u0000\u0000\u0000$#\u0001\u0000\u0000\u0000%\u0001"+
 		"\u0001\u0000\u0000\u0000&*\u00053\u0000\u0000\')\t\u0000\u0000\u0000("+
 		"\'\u0001\u0000\u0000\u0000),\u0001\u0000\u0000\u0000*+\u0001\u0000\u0000"+

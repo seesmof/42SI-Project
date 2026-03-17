@@ -2,14 +2,14 @@ grammar Rust;
 
 // --- PARSER ---
 start:
-	block
-	| method
-	| function
-	| struct
-	| if
+	if
 	| else
+	| block
+	| struct
+	| method
 	| if_else
-	| else_if;
+	| else_if
+	| function;
 
 // Block
 block: LEFT_CURLY_BRACE .*? RIGHT_CURLY_BRACE;

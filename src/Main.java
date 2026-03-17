@@ -2,7 +2,9 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
-import java.io.PrintStream;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
 
 import gen.RustLexer;
 import gen.RustParser;
@@ -33,14 +35,42 @@ public class Main {
         analyze.addActionListener(e -> {
             outputField.setText("");
             RustLexer lexer = new RustLexer(CharStreams.fromString(inputField.getText()));
-            lexer.removeErrorListeners();
-            lexer.addErrorListener(CustomErrorListener.INSTANCE);
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             RustParser parser = new RustParser(tokens);
-            parser.removeErrorListeners();
-            parser.addErrorListener(CustomErrorListener.INSTANCE);
             ParseTree tree = parser.start();
             outputField.setText(tree.toStringTree(parser));
+        });
+
+        upload.addActionListener(new ActionListener() {
+            @Override
+            public
+            void actionPerformed(ActionEvent e) {
+                String initialPath = "D:\\University-Universytet\\42SI Stvorennja IDE\\";
+                JFileChooser chooser = new JFileChooser(initialPath);
+                int returnedValue = chooser.showOpenDialog(frame);
+
+                if (returnedValue == JFileChooser.APPROVE_OPTION) {
+                    File file = chooser.getSelectedFile();
+                    System.out.println(file.getPath());
+
+                    try {
+                        FileReader reader = new FileReader(file);
+                        BufferedReader bufferedReader = new BufferedReader(reader);
+
+                        String string1 = "";
+                        StringBuilder string2 = new StringBuilder();
+
+                        while ((string1 = bufferedReader.readLine()) != null) {
+                            string2.append(string1).append("\n");
+                        }
+
+                        inputField.setText(string2.toString());
+                        bufferedReader.close();
+                    } catch (IOException fileNotFoundException) {
+                        fileNotFoundException.printStackTrace();
+                    }
+                }
+            }
         });
 
         frame.setSize(400,400);
