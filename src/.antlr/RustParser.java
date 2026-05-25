@@ -1,4 +1,4 @@
-// Generated from d:/University-Universytet/42SI Stvorennja IDE/source/src/Rust.g4 by ANTLR 4.13.1
+// Generated from d:/42SI-Project/src/Rust.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
